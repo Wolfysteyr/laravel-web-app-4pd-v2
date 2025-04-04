@@ -48,7 +48,7 @@
                         </div>
                     @endforeach
 
-                    <form action="/posts/{post}/comments" method="post" >
+                    <form action="/posts/{{$post->id}}/comments" method="post" >
                         @csrf
                         <div>
                             <textarea
