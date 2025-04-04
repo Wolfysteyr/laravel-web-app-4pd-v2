@@ -48,7 +48,7 @@
                         </div>
                     @endforeach
 
-                    <form action="{{ route('comments.store') }}" method="post">
+                    <form action="/posts/{post}/comments" method="post" >
                         @csrf
                         <div>
                             <textarea
@@ -61,8 +61,6 @@
                             type="submit"
                             class="inline-flex items-center mt-2 px-4 py-2 bg-blue-600 border border-transparent rounded-md shadow-sm text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                         >Add Comment</button>
-
-                        
                     </form>
                 </div>
             </div>
