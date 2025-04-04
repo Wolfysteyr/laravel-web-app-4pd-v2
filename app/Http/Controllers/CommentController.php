@@ -14,12 +14,17 @@ class CommentController extends Controller
         $request->validate([
             'content' => 'required|string'
         ]);
-
-        $post->create([
-            'user_id' => Auth::id(),
-            'content' => $request->content
+        $comment = new Comment;
+        
+        $comment->create([
+            'content' => $request->content,
+            'post_id' => $post->post_id,
+            'user_id' => Auth::id()
+            
         ]);
 
-        return redirect()->back()->with('success', 'Comment added successfully!');
+        $comment->save;
+
+        return view('post.show', ['post' => $post]);
     }
 }
